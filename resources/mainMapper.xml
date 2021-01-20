@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.ssh.pjt.mainMapper">
+	
+	<insert id="clickGameScoreReset" parameterType="String">
+		insert
+		into tb_clickgame
+		(
+			clickgame_id,
+			clickgame_score,
+			clickgame_date
+		)
+		value
+		(
+			#{clickgame_id},
+			1,
+			now()
+		)
+	</insert>
+	
+	<insert id="piheabammaScoreReset" parameterType="String">
+		insert
+		into tb_piheabamma
+		(
+			piheabamma_id,
+			piheabamma_score,
+			piheabamma_date
+		)
+		value
+		(
+			#{piheabamma_id},
+			0,
+			now()
+		)
+	</insert>
+	
+	<insert id="boardWrite_Action" parameterType="com.ssh.pjt.dto.BoardDto">
+		
+		insert
+		into tb_board
+		(
+			board_title,
+			board_id,
+			board_text,
+			board_hits,
+			board_state,
+			board_date
+		)
+		value
+		(
+			#{board_title},
+			#{board_id},
+			#{board_text},
+			0,
+			"t",
+			now()
+		)
+		
+	</insert>
+
+
+	<select id="getBoardCnt" parameterType="com.ssh.pjt.dto.BoardDto" resultType="int">
+		select count(*) from tb_board
+	</select>
+	
+	<select id="getBoardList" parameterType="com.ssh.pjt.dto.BoardDto" resultType="com.ssh.pjt.dto.BoardDto">
+	select
+		board_seq,
+		board_title,
+      board_id,
+		board_text,
+		board_hits,
+		board_state,
+		board_date,
+		@rownum:=@rownum+1	as	rownum
+	from
+		tb_board,
+		(select @rownum:=0) tmp
+	
+	where
+		board_state = 't'
+	
+	order by board_seq desc, rownum desc
+
+    limit #{limit} offset #{offset};
+	</select>
+	
+	<delete id="boardDelete" parameterType="com.ssh.pjt.dto.BoardDto">
+		delete from tb_board where board_seq = #{board_seq}
+	</delete>
+	
+	<select id="getBoardDetail" parameterType="int" resultType="com.ssh.pjt.dto.BoardDto">
+		select * from tb_board where board_seq = #{board_seq}
+	</select>
+	
+	<update id="boardHits" parameterType="int">
+		update tb_board set board_hits = board_hits + 1 where board_seq = #{board_seq}
+	</update>
+	
+	<select id="getBoard" parameterType="com.ssh.pjt.dto.BoardDto" resultType="com.ssh.pjt.dto.BoardDto">
+		select *
+		from tb_board where board_seq = #{board_seq}
+	</select>
+	
+	<update id="boardModify_action" parameterType="com.ssh.pjt.dto.BoardDto">
+		update tb_board set board_title = #{board_title}, board_text = #{board_text} 
+		where board_seq = #{board_seq}
+	</update>
+	
+	<insert id="reply_insert" parameterType="com.ssh.pjt.dto.ReplyDto">
+		insert
+		into tb_reply
+		(
+			reply_id,
+			reply_boardSeq,
+			reply_text,
+			reply_date,
+			reply_state
+		)
+		value
+		(
+			#{reply_id},
+			#{reply_boardSeq},
+			#{reply_text},
+			now(),
+			"t"
+		)
+	</insert>
+	
+	<select id="reply_list" parameterType="int" resultType="com.ssh.pjt.dto.ReplyDto">
+		select * from tb_reply where reply_boardSeq = #{reply_boardSeq}
+	</select>
+	
+	<update id="reply_modify" parameterType="com.ssh.pjt.dto.ReplyDto">
+		update tb_reply
+		set reply_text = #{reply_text} 
+		where reply_boardSeq = #{reply_boardSeq} and reply_seq = #{reply_seq}
+	</update>
+	
+	<delete id="reply_delete" parameterType="int">
+		delete from tb_reply where reply_seq = #{reply_seq}
+	</delete>
+	
+	<select id="clickGame_select" parameterType="com.ssh.pjt.dto.ClickGameDto" resultType="com.ssh.pjt.dto.ClickGameDto">
+		Select * from tb_clickgame order by clickgame_score asc limit 10 offset 0
+	</select>
+	
+	<insert id="clickGame_insert" parameterType="com.ssh.pjt.dto.ClickGameDto">
+		
+		insert
+		into tb_clickgame
+		(
+			clickgame_id,
+			clickgame_score,
+			clickgame_date
+		)
+		value
+		(
+			#{clickgame_id},
+			#{clickgame_score},
+			now()
+		)
+		
+	</insert>
+	
+	<select id="clickgame_scoreCheck" parameterType="com.ssh.pjt.dto.ClickGameDto" resultType="boolean">
+		select if(<![CDATA[#{clickgame_score} <= MAX(clickgame_score)]]>,true,false) from tb_clickgame 
+	</select>
+	
+	<select id="clickgame_count" parameterType="com.ssh.pjt.dto.ClickGameDto" resultType="int">
+		select count(*) from tb_clickgame
+	</select>
+
+	<select id="piheabamma_select" parameterType="com.ssh.pjt.dto.PiheabammaDto" resultType="com.ssh.pjt.dto.PiheabammaDto">
+		select * from tb_piheabamma order by piheabamma_score desc limit 10 offset 0
+	</select>
+	
+	<insert id="piheabamma_insert" parameterType="com.ssh.pjt.dto.PiheabammaDto">
+		
+		insert
+		into tb_piheabamma
+		(
+			piheabamma_id,
+			piheabamma_score,
+			piheabamma_date
+		)
+		value
+		(
+			#{piheabamma_id},
+			#{piheabamma_score},
+			now()
+		)
+		
+	</insert>
+	
+	<select id="clickgame_myMaxScore" parameterType="String" resultType="com.ssh.pjt.dto.ClickGameDto">
+		select clickgame_id, round(1/min(clickgame_score),3) as clickgame_score from tb_clickgame where clickgame_id = #{clickgame_id};
+	</select>
+	
+	<select id="clickgame_maxScore" parameterType="com.ssh.pjt.dto.ClickGameDto" resultType="com.ssh.pjt.dto.ClickGameDto">
+		select clickgame_id, round(1/min(clickgame_score),3) as clickgame_score from tb_clickgame;
+	</select>
+	
+	<select id="piheabamma_myMaxScore" parameterType="String" resultType="com.ssh.pjt.dto.PiheabammaDto">
+		 select piheabamma_id, max(piheabamma_score) as piheabamma_score from tb_piheabamma where piheabamma_id = #{piheabamma_id};
+	</select>
+	
+	<select id="piheabamma_maxScore" parameterType="com.ssh.pjt.dto.PiheabammaDto" resultType="com.ssh.pjt.dto.PiheabammaDto">
+		 select piheabamma_id, piheabamma_score from tb_piheabamma order by piheabamma_score desc limit 1;
+	</select>
+	
+	<select id="getUserById" resultType="com.ssh.pjt.dto.UserDto">
+		<![CDATA[
+			select
+				*
+			from
+				users
+			where
+				id=#{id}
+		]]>
+	</select>
+	
+	<insert id="register" parameterType="com.ssh.pjt.dto.UserDto">
+		insert into users(id, password, name, enabled) values( #{id} , #{password} , #{name} , 1 )
+	</insert>
+	
+	<update id="mypageModify" parameterType="com.ssh.pjt.dto.UserDto">
+		update users set password = #{password} where id = #{id}
+	</update>
+	
+	<select id="id_chk" parameterType="String" resultType="int">
+		select count(*) from users where id = #{id}
+	</select>
+	
+</mapper>
+
