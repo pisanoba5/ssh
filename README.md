@@ -12,14 +12,14 @@
   - front-end : bootstrap, chart.js
 
 ## Featurs
-### Game  
+* Game  
     (1) clickgame(순발력 게임)  
       <img width="384" height="340" src="https://user-images.githubusercontent.com/39799061/111893264-d6bc3580-8a44-11eb-911f-bb523cd7c248.gif"/>  
     (2) piheabamma(장애물피하기 게임)  
       <img width="384" height="340" src="https://user-images.githubusercontent.com/39799061/111893144-ec7d2b00-8a43-11eb-8c14-30ee4323995d.gif"/>  
     (3) chart.js(기록출력)  
       <img width="1185" height="384" src="https://user-images.githubusercontent.com/39799061/111893284-079c6a80-8a45-11eb-95a9-2a6ae1a756b3.gif"/>    
-### Board  
+* Board  
    (1) BoardList(댓글 갯수와 총 댓글갯수, 플로필사진 출력)  
       <img width="1177" height="500" src="https://user-images.githubusercontent.com/39799061/111893585-1edc5780-8a47-11eb-9fec-98677b2b84f4.jpg"/>   
     
