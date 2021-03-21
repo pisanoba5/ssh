@@ -13,12 +13,12 @@
 
 ## Featurs
 * 1.게임
-    - piheabamma
-        -<img width="384" height="340" src="https://user-images.githubusercontent.com/39799061/111893144-ec7d2b00-8a43-11eb-8c14-30ee4323995d.gif"/>
-    - clickgame
-        -<img width="384" height="340" src="https://user-images.githubusercontent.com/39799061/111893264-d6bc3580-8a44-11eb-911f-bb523cd7c248.gif"/>
+    - clickgame(순발력 게임)
+      - <img width="384" height="340" src="https://user-images.githubusercontent.com/39799061/111893264-d6bc3580-8a44-11eb-911f-bb523cd7c248.gif"/>
+    - piheabamma(장애물피하기 게임)
+      - <img width="384" height="340" src="https://user-images.githubusercontent.com/39799061/111893144-ec7d2b00-8a43-11eb-8c14-30ee4323995d.gif"/>
     - 게임결과
-       - <img width="1185" height="384" src="https://user-images.githubusercontent.com/39799061/111893284-079c6a80-8a45-11eb-95a9-2a6ae1a756b3.gif"/>
+      - <img width="1185" height="384" src="https://user-images.githubusercontent.com/39799061/111893284-079c6a80-8a45-11eb-95a9-2a6ae1a756b3.gif"/>
    
 
    
