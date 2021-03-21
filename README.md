@@ -27,9 +27,9 @@
       <img width="1177" height="500" src="https://user-images.githubusercontent.com/39799061/111893622-6367f300-8a47-11eb-9fcd-251904581aa5.jpg"/>   
       
    (3) BoardDetail   
-      <img width="1177" height="700" src="https://user-images.githubusercontent.com/39799061/111893597-39aecc00-8a47-11eb-96e8-141adc0de34a.jpg"/>    
+      <img width="1177" height="600" src="https://user-images.githubusercontent.com/39799061/111893597-39aecc00-8a47-11eb-96e8-141adc0de34a.jpg"/>    
       
-   (4) BoardComment(ajax를 이용한 비동기 계형 댓글과 답글)   
+   (4) BoardComment(ajax를 이용한 비동기 계층형 댓글과 답글)   
       <img width="1177" height="500" src="https://user-images.githubusercontent.com/39799061/111893642-7aa6e080-8a47-11eb-9cd8-339054e00674.jpg"/>  
       <img width="1177" height="500" src="https://user-images.githubusercontent.com/39799061/111893644-7bd80d80-8a47-11eb-988d-1a8aa58bdee4.jpg"/>  
       
