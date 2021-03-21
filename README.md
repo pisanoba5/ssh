@@ -35,45 +35,6 @@
       
 * 암호화  
   (1) spring-security  
+  (2) BCryptPasswordEncoder를 이용한 암호화  
   
-	  ```
-		<beans:bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
-
-		<http use-expressions="true"> 
-			<csrf disabled="true"/>
-			<headers>
-			<frame-options policy="SAMEORIGIN"/>
-		    </headers>
-			<intercept-url pattern="/board/boardWrite" access="hasRole('USER')"/> 
-			<intercept-url pattern="/board/boardModify" access="hasRole('USER')"/> 
-			<intercept-url pattern="/mypage/**" access="hasRole('USER')"/> 
-			<intercept-url pattern="/css/**" access="permitAll" />
-			<intercept-url pattern="/js/**" access="permitAll" />
-			<intercept-url pattern="/img/**" access="permitAll" />
-			<intercept-url pattern="/resources/**" access="permitAll" />
-			<intercept-url pattern="/photo_upload/**" access="permitAll" />
-			<intercept-url pattern="/editor/**" access="permitAll" />
-			<intercept-url pattern="/**" access="permitAll"/> 
-
-			<form-login login-page="/login/login"	
-								 default-target-url="/"
-								 authentication-failure-url="/login/login?error"
-								 username-parameter="id"
-								 password-parameter="password"/> 
-			<logout logout-url="/logout"
-							 logout-success-url="/"
-							 invalidate-session="true"
-							 delete-cookies="true"/>
-
-							<access-denied-handler error-page="/" />
-
-		</http>
-			<authentication-manager>
-				<authentication-provider ref="userAuthProvider"/>
-				<authentication-provider user-service-ref="userService"></authentication-provider>
-			</authentication-manager>	
-			<beans:bean id="userService" class="com.ssh.pjt.service.UserService"/>
-			<beans:bean id="userAuthProvider" class="com.ssh.pjt.common.CustomAuthenticationProvider"/>
-		</beans:beans>
-	 ```
    
