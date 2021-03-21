@@ -33,46 +33,47 @@
       <img width="1177" height="500" src="https://user-images.githubusercontent.com/39799061/111893642-7aa6e080-8a47-11eb-9cd8-339054e00674.jpg"/>  
       <img width="1177" height="500" src="https://user-images.githubusercontent.com/39799061/111893644-7bd80d80-8a47-11eb-988d-1a8aa58bdee4.jpg"/>  
       
-* 암호화
+* 암호화  
   (1) spring-security  
-  ```
-  <beans:bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
-	
-<http use-expressions="true"> 
-	<csrf disabled="true"/>
-	<headers>
-        <frame-options policy="SAMEORIGIN"/>
-    </headers>
-	<intercept-url pattern="/board/boardWrite" access="hasRole('USER')"/> 
-	<intercept-url pattern="/board/boardModify" access="hasRole('USER')"/> 
-	<intercept-url pattern="/mypage/**" access="hasRole('USER')"/> 
-	<intercept-url pattern="/css/**" access="permitAll" />
-	<intercept-url pattern="/js/**" access="permitAll" />
-	<intercept-url pattern="/img/**" access="permitAll" />
-	<intercept-url pattern="/resources/**" access="permitAll" />
-	<intercept-url pattern="/photo_upload/**" access="permitAll" />
-	<intercept-url pattern="/editor/**" access="permitAll" />
-	<intercept-url pattern="/**" access="permitAll"/> 
+  
+	  ```
+		<beans:bean id="bcryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 
-	<form-login login-page="/login/login"	
-						 default-target-url="/"
-						 authentication-failure-url="/login/login?error"
-						 username-parameter="id"
-						 password-parameter="password"/> 
-	<logout logout-url="/logout"
-					 logout-success-url="/"
-					 invalidate-session="true"
-					 delete-cookies="true"/>
-					 
-					<access-denied-handler error-page="/" />
+		<http use-expressions="true"> 
+			<csrf disabled="true"/>
+			<headers>
+			<frame-options policy="SAMEORIGIN"/>
+		    </headers>
+			<intercept-url pattern="/board/boardWrite" access="hasRole('USER')"/> 
+			<intercept-url pattern="/board/boardModify" access="hasRole('USER')"/> 
+			<intercept-url pattern="/mypage/**" access="hasRole('USER')"/> 
+			<intercept-url pattern="/css/**" access="permitAll" />
+			<intercept-url pattern="/js/**" access="permitAll" />
+			<intercept-url pattern="/img/**" access="permitAll" />
+			<intercept-url pattern="/resources/**" access="permitAll" />
+			<intercept-url pattern="/photo_upload/**" access="permitAll" />
+			<intercept-url pattern="/editor/**" access="permitAll" />
+			<intercept-url pattern="/**" access="permitAll"/> 
 
-</http>
-	<authentication-manager>
-		<authentication-provider ref="userAuthProvider"/>
-		<authentication-provider user-service-ref="userService"></authentication-provider>
-	</authentication-manager>	
-	<beans:bean id="userService" class="com.ssh.pjt.service.UserService"/>
-	<beans:bean id="userAuthProvider" class="com.ssh.pjt.common.CustomAuthenticationProvider"/>
-</beans:beans>
- ```
+			<form-login login-page="/login/login"	
+								 default-target-url="/"
+								 authentication-failure-url="/login/login?error"
+								 username-parameter="id"
+								 password-parameter="password"/> 
+			<logout logout-url="/logout"
+							 logout-success-url="/"
+							 invalidate-session="true"
+							 delete-cookies="true"/>
+
+							<access-denied-handler error-page="/" />
+
+		</http>
+			<authentication-manager>
+				<authentication-provider ref="userAuthProvider"/>
+				<authentication-provider user-service-ref="userService"></authentication-provider>
+			</authentication-manager>	
+			<beans:bean id="userService" class="com.ssh.pjt.service.UserService"/>
+			<beans:bean id="userAuthProvider" class="com.ssh.pjt.common.CustomAuthenticationProvider"/>
+		</beans:beans>
+	 ```
    
