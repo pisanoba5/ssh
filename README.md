@@ -36,5 +36,4 @@
 * 암호화  
   (1) spring-security  
   (2) BCryptPasswordEncoder를 이용한 암호화  
-  
-   
+      <img width="1000" height="500" src=" https://user-images.githubusercontent.com/39799061/111894577-3ddee780-8a4f-11eb-819c-b4b025b4c604.jpg"/>  
