@@ -14,4 +14,7 @@
 ## Featurs
 * 1.게임
     - piheabamma
-    -
+    <img width="384" height="340" src="https://user-images.githubusercontent.com/39799061/111893144-ec7d2b00-8a43-11eb-8c14-30ee4323995d.gif"/>
+    - clickgame
+    - 
+   
