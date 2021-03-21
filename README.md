@@ -13,21 +13,23 @@
 
 ## Featurs
 + Game  
-    - clickgame(순발력 게임)  
+    (1) clickgame(순발력 게임)  
       <img width="384" height="340" src="https://user-images.githubusercontent.com/39799061/111893264-d6bc3580-8a44-11eb-911f-bb523cd7c248.gif"/>  
-    - piheabamma(장애물피하기 게임)  
+    (2) piheabamma(장애물피하기 게임)  
       <img width="384" height="340" src="https://user-images.githubusercontent.com/39799061/111893144-ec7d2b00-8a43-11eb-8c14-30ee4323995d.gif"/>  
-     - chart.js  
+    (3) chart.js  
       <img width="1185" height="384" src="https://user-images.githubusercontent.com/39799061/111893284-079c6a80-8a45-11eb-95a9-2a6ae1a756b3.gif"/>    
 + Board  
-   - BoardList 
-     
-      <img width="1177" height="500" src="https://user-images.githubusercontent.com/39799061/111893585-1edc5780-8a47-11eb-9fec-98677b2b84f4.jpg"/> 
-   - BoardUploadPage  
-      <img width="1177" height="500" src="https://user-images.githubusercontent.com/39799061/111893622-6367f300-8a47-11eb-9fcd-251904581aa5.jpg"/>  
-   - BoardDetail 
-      <img width="1177" height="700" src="https://user-images.githubusercontent.com/39799061/111893597-39aecc00-8a47-11eb-96e8-141adc0de34a.jpg"/>  
-   - BoardComment  
+   (1) BoardList 
+      <img width="1177" height="500" src="https://user-images.githubusercontent.com/39799061/111893585-1edc5780-8a47-11eb-9fec-98677b2b84f4.jpg"/>   
+    
+   (2) BoardUploadPage  
+      <img width="1177" height="500" src="https://user-images.githubusercontent.com/39799061/111893622-6367f300-8a47-11eb-9fcd-251904581aa5.jpg"/>   
+      
+   (3) BoardDetail 
+      <img width="1177" height="700" src="https://user-images.githubusercontent.com/39799061/111893597-39aecc00-8a47-11eb-96e8-141adc0de34a.jpg"/>    
+      
+   (4) BoardComment  
       <img width="1177" height="500" src="https://user-images.githubusercontent.com/39799061/111893642-7aa6e080-8a47-11eb-9cd8-339054e00674.jpg"/>  
       <img width="1177" height="500" src="https://user-images.githubusercontent.com/39799061/111893644-7bd80d80-8a47-11eb-988d-1a8aa58bdee4.jpg"/>  
    
